@@ -1,102 +1,102 @@
-# ကြယ်လမ်း · Kyallan
+# Kyallan · ကြယ်လမ်း
 
-**မြန်မာဘာသာဖြင့် အာကာသပညာ လေ့လာရန် website** — နေအဖွဲ့အစည်း၊ NASA မစ်ရှင်များ၊ အာကာသသမိုင်း၊ ကောင်းကင်ကြည့်ရှုရေး၊ NASA မီဒီယာ၊ ISS တည်နေရာ၊ NEO၊ အာကာသသတင်း၊ သုတေသနစာတမ်းများနှင့် ဒုံးပျံလွှတ်တင်မှုဇယား။
+**A website for learning astronomy in Burmese** — explore the Solar System, NASA missions, astronomy events, and more.
 
-ဒီ project ကို dependency မလိုအောင် တည်ဆောက်ထားပြီး Node.js 18+ နဲ့ build/serve လုပ်နိုင်ပါတယ်။ Public website အဖြစ် GitHub Pages ပေါ် အခမဲ့ ဖြန့်ချိနိုင်ပါတယ်။ Local images တွေကို WebP responsive variants နဲ့ ထုတ်ပေးပြီး direct section links အတွက် early-route styling၊ local preview မှာ gzip နဲ့ content-versioned caching ပါဝင်ပါတယ်။
+This project is built without external dependencies and can be built and served with Node.js 18+. The public website can be deployed to GitHub Pages or Vercel.
 
-## ဖိုင်ဖွဲ့စည်းပုံ
+## Project structure
 
 ```text
 kyallan/
 ├── src/
 │   ├── index.template.html, hero.html, footer.html
-│   ├── sections/*.html          # section တစ်ခုကို ဖိုင်တစ်ခု
-│   ├── data/site.json           # နာမည်၊ မီနူး၊ section အစီအစဉ်
+│   ├── sections/*.html          # One file per section
+│   ├── data/site.json           # Site name, menu, and section order
 │   ├── css/*.css
-│   ├── js/*.js                  # UI, router, tools, live data
-│   └── assets/                  # fonts, photos
-├── public/                      # favicon, PWA manifest/icons, service worker
+│   ├── js/*.js                  # UI, router, tools, and live data
+│   └── assets/                  # Fonts and photos
+├── public/                      # Favicon, PWA manifest/icons, service worker
 ├── scripts/
-│   ├── fetch-data.mjs            # API snapshot fetch + schema checks
-│   ├── build.mjs                 # source files -> dist/
-│   ├── validate-site.mjs         # static output checks
-│   └── serve.mjs                 # local preview server
-└── .github/workflows/deploy.yml  # refresh, build, validate, deploy
+│   ├── fetch-data.mjs           # Fetch API snapshots and check schemas
+│   ├── build.mjs                # Build source files into dist/
+│   ├── validate-site.mjs        # Check the generated site
+│   └── serve.mjs                # Local preview server
+└── .github/workflows/deploy.yml # Refresh, build, validate, and deploy
 ```
 
-## ကိုယ်ပိုင်ကွန်ပျူတာမှာ စမ်းရန်
+## Run locally
 
-Node.js 18 နှင့်အထက်ကို အသုံးပြုပါ။ Terminal မှ project folder ထဲဝင်ပြီး—
+Use Node.js 18 or later. Open a terminal in the project directory and run:
 
 ```bash
-npm start              # build ပြီး localhost:8080 မှာ ဖွင့်မယ်
-PORT=3000 npm start     # 8080 ကို တခြား program သုံးနေခဲ့ရင် port ပြောင်းဖွင့်မယ်
-npm run fetch          # public API data ကို data-cache/ ထဲ ဆွဲမယ်
-npm run build          # dist/ ထုတ်မယ်
-npm run validate       # HTML၊ link၊ asset၊ section၊ manifest နဲ့ data file စစ်မယ်
-npm run start:live     # API data ဆွဲပြီး build/preview လုပ်မယ်
+npm start              # Build and serve at localhost:8080
+PORT=3000 npm start     # Use a different port if 8080 is already in use
+npm run fetch           # Fetch public API data into data-cache/
+npm run build           # Generate dist/
+npm run validate        # Check HTML, links, assets, sections, manifest, and data files
+npm run start:live       # Fetch API data, then build and preview
 ```
 
-`npm run start:live` အတွက် အင်တာနက်လိုပါတယ်။ API တချို့က ကိုယ့်ဒေသ၊ API rate limit သို့မဟုတ် upstream ပြုပြင်မှုကြောင့် ခဏတာ မရနိုင်ပါ။ Fetch မအောင်မြင်ရင် ရှိပြီးသား valid snapshot ကို မဖျက်ဘဲ ထိန်းထားဖို့ ကြိုးစားထားပါတယ်။
+`npm run start:live` requires an internet connection. Some APIs may be unavailable because of regional restrictions, rate limits, or upstream service issues. In that case, the site can use its existing cached data where available.
 
-## GitHub Pages ပေါ် တင်ရန်
+## Deploy to GitHub Pages
 
-1. ZIP ကို ဖြည်ပြီး ဖိုင်အားလုံး (အထူးသဖြင့် `.github` folder) ကို GitHub repository ရဲ့ `main` branch ထဲ တင်ပါ။
-2. Repository → **Settings → Pages → Build and deployment → Source: GitHub Actions** ကို ရွေးပါ။
-3. Repository → **Actions** ထဲက **Build, validate & deploy to GitHub Pages** workflow အောင်မြင်/မအောင်မြင် စစ်ပါ။
-4. **Settings → Secrets and variables → Actions → Variables** မှာ `SITE_URL` ကို ထည့်ပါ။ ဥပမာ `https://USERNAME.github.io/REPOSITORY/`။ Custom domain သုံးရင် ကိုယ့် HTTPS domain ကို ထည့်ပါ။ (GitHub Pages ပုံမှန် URL ဆိုရင် မထည့်လည်း Actions က အလိုအလျောက် သတ်မှတ်ပေးပါတယ်။) ဒီ variable က canonical URL၊ sitemap နဲ့ robots.txt ထုတ်ဖို့ အသုံးပြုပါတယ်။
-5. Deploy အောင်မြင်ပြီး website ကို ဖွင့်စမ်းပါ။ Build/validate အစိမ်းရောင်ဖြစ်တာက live API တစ်ခုချင်းစီ အမြဲရမယ်လို့ အာမမခံပါ—Actions log မှာ `ok` / `warning` စာကြောင်းတွေကိုပါ စစ်ပါ။
+1. Extract the ZIP and upload all project files (especially the `.github` folder) to the `main` branch of your GitHub repository.
+2. Go to **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**.
+3. In the repository's **Actions** tab, check whether the **Build, validate & deploy to GitHub Pages** workflow succeeds.
+4. Under **Settings → Secrets and variables → Actions → Variables**, add `SITE_URL`. For example: `https://USERNAME.github.io/REPOSITORY/`. If you use a custom domain, use its URL instead.
+5. After deployment succeeds, open the website and test it. A successful build and validation do not guarantee that every live API is available.
 
-### NASA API key (ရွေးချယ်နိုင်)
+### NASA API key (optional)
 
-NASA APOD နဲ့ Near-Earth Object API အတွက် shared `DEMO_KEY` က rate limit ပြည့်နိုင်ပါတယ်။ အခမဲ့ key ကို <https://api.nasa.gov/> မှာ ရယူပြီး Repository → **Settings → Secrets and variables → Actions → Secrets** မှာ `NASA_API_KEY` အမည်နဲ့ ထည့်နိုင်ပါတယ်။ Key ကို source code ထဲ မရေးပါနှင့်။ Website visitor တစ်ယောက်ချင်းစီမှာလည်း Live အပိုင်းအောက်က key field မှ ကိုယ်ပိုင် key ကို browser local storage ထဲ သိမ်းနိုင်ပါတယ်။
+The shared `DEMO_KEY` may reach its rate limit when used for NASA APOD and the Near-Earth Object API. Get a free key at <https://api.nasa.gov/> and add it as the `NASA_API_KEY` environment variable in your deployment settings.
 
-## Live API တွေနဲ့ ဒေတာအဟောင်းကို ကာကွယ်ပုံ
+## Live APIs and stale-data protection
 
-Website build မတိုင်ခင် GitHub Actions က ဒီဒေတာတွေကို snapshot အဖြစ် ဆွဲပါတယ်။
+Before building the website, GitHub Actions fetches snapshots of the following data:
 
-| ဒေတာ | ရင်းမြစ် | အသုံးပြုပုံ |
+| Data | Source | Use |
 |---|---|---|
-| Astronomy Picture of the Day | NASA APOD WordPress API | နေ့စဉ်ပုံ၊ ခေါင်းစဉ်၊ ရှင်းလင်းချက် |
-| Near-Earth Objects | NASA NeoWs | လက်ရှိရက်အတွက် ဥက္ကာခဲနီးကပ်ဖြတ်သန်းမှု |
-| People in Space | Corquaid ISS APIs | အာကာသထဲရှိ လူစာရင်း |
-| Spaceflight News | The Space Devs / Spaceflight News API | အာကာသသတင်း — visitor ဖွင့်တာနဲ့ API ကို တိုက်ရိုက်ခေါ်ပြီး ၅ မိနစ်တစ်ခါ auto-refresh၊ မရရင် snapshot ကို သုံး |
-| Upcoming launches | Launch Library 2 | လာမည့် launch များ၊ UTC အချိန်၊ အခြေအနေ |
-| arXiv | arXiv Atom API | နောက်ဆုံး astro-ph စာတမ်းများ |
-| ISS position / Earth EPIC / NASA image search | Where the ISS At? / NASA EPIC / NASA Images API | သက်ဆိုင်ရာ widget ကို ဖွင့်ကြည့်ချိန် browser က ရယူ |
+| Astronomy Picture of the Day | NASA APOD WordPress API | Daily image, title, and explanation |
+| Near-Earth Objects | NASA NeoWs | Asteroid close approaches for the current date |
+| People in Space | Corquaid ISS APIs | List of people currently in space |
+| Spaceflight News | The Space Devs / Spaceflight News API | Space news — requested directly from the API when a visitor opens it |
+| Upcoming launches | Launch Library 2 | Upcoming launches, UTC times, and status |
+| arXiv | arXiv Atom API | Latest astro-ph papers |
+| ISS position / Earth EPIC / NASA image search | Where the ISS At? / NASA EPIC / NASA Images API | Fetched in the browser when the relevant widget is opened |
 
-`data-cache/` ကို GitHub Actions cache ဖြင့် run တစ်ခုနဲ့တစ်ခုကြား ဆက်လက်အသုံးပြုနိုင်အောင် စီစဉ်ထားပါတယ်။ Upstream API တစ်ခု ပျက်သွားရင် ယခင် valid snapshot ကို အသုံးပြုဖို့ ကြိုးစားပြီး၊ frontend က snapshot ဟောင်းနေရင် “ဟောင်းနိုင်သည်” လို့ ဖော်ပြပါတယ်။ Cache အလွတ်ဖြစ်နေတဲ့ ပထမ run မှာ API မရပါက widget တချို့မှာ error/retry state ပေါ်နိုင်ပါတယ်။
+The `data-cache/` directory is retained between GitHub Actions runs using the Actions cache, so previously fetched snapshots can be used as a fallback if an API request fails.
 
-Launch Library 2 ရဲ့ unauthenticated quota က တစ်နာရီ ၁၅ request ဖြစ်တာကြောင့် website visitor တစ်ယောက်ချင်းစီက launch API ကို မခေါ်စေဘဲ snapshot အဖြစ်ပဲ ပြသပါတယ်။ Workflow က သုံးနာရီတစ်ခါ အလိုအလျောက် refresh လုပ်ပြီး manual `workflow_dispatch` နဲ့လည်း ခေါ်နိုင်ပါတယ်။
+Launch Library 2's unauthenticated quota is 15 requests per hour, so the site does not make a launch-data request for every individual visitor. The build workflow refreshes and caches this data instead.
 
 ## Offline / PWA
 
-Service worker က site shell၊ font၊ အရင် load လုပ်ထားတဲ့ same-origin asset နဲ့ API snapshot များကို cache လုပ်ပေးပါတယ်။ ပထမဆုံးအကြိမ် ဖွင့်ရာမှာ online လိုပါတယ်။ External API များအားလုံးကို offline မှာ အလုပ်လုပ်နိုင်မည်ဟု မဆိုလိုပါ။ Browser ရဲ့ application settings မှာ install လုပ်နိုင်သည့် site အဖြစ် ပေါ်လာနိုင်ပါတယ်။
+The service worker caches the site shell, fonts, previously loaded same-origin assets, and API snapshots. Some live features still require an internet connection, and cached data may not be current.
 
-## ပြင်ဆင်ရမည့်ဖိုင်များ
+## Files to edit
 
-| လုပ်ချင်တာ | ပြင်ရမယ့်ဖိုင် |
+| To change | Edit |
 |---|---|
-| ပုံအစု (NASA ပုံများ) | section ဖိုင်ထဲက `<div class="nasa-gallery" data-q="...">` |
-| Footer ဆက်သွယ်ရန် email | `src/footer.html` |
-| Space Calendar ရက်စွဲ (meteor, eclipse, mission) | `src/data/calendar.json` (ဒီဖိုင်ပဲ ပြင်ရင် ရပါတယ်) |
-| Section စာသား/ပုံ | `src/sections/<id>.html` |
-| မီနူး၊ section အစီအစဉ်၊ metadata | `src/data/site.json` |
+| Image gallery (NASA images) | `<div class="nasa-gallery" data-q="...">` in a section file |
+| Footer contact email | `src/footer.html` |
+| Space Calendar dates (meteor showers, eclipses, missions) | `src/data/calendar.json` (you only need to edit this file) |
+| Section text or images | `src/sections/<id>.html` |
+| Menu, section order, and metadata | `src/data/site.json` |
 | Responsive appearance | `src/css/base.css`, `src/css/ui.css` |
-| Live API / API fallback | `src/js/live.js` |
-| API snapshot fetch/validation | `scripts/fetch-data.mjs` |
-| Build / SEO / generated output | `scripts/build.mjs`, `src/index.template.html` |
+| Live APIs and API fallbacks | `src/js/live.js` |
+| API snapshot fetching and validation | `scripts/fetch-data.mjs` |
+| Build, SEO, and generated output | `scripts/build.mjs`, `src/index.template.html` |
 | Offline caching | `public/sw.js` |
 
-ပြင်ပြီးရင် `npm run build && npm run validate` ကို အရင်စမ်းပါ။ အဲဒီနောက် GitHub ပေါ် push လုပ်ပြီး Actions log နဲ့ အမှန်တကယ် browser မျက်နှာပြင်ကို စစ်ပါ။
+After making changes, run `npm run build && npm run validate` first. Then push your changes to GitHub and check the Actions workflow.
 
-## အချက်အလက် တိကျမှုနှင့် ရင်းမြစ်
+## Accuracy and sources
 
-Mission schedule နဲ့ astronomy event ရက်စွဲတွေ ပြောင်းနိုင်ပါတယ်။ Artemis III/IV အတွက် <https://www.nasa.gov/missions/artemis/nasa-shares-plans-to-accelerate-artemis-return-to-moon/>၊ meteor shower အတွက် <https://www.imo.net/calendar/> နဲ့ eclipse visibility အတွက် <https://eclipse.gsfc.nasa.gov/> / <https://www.timeanddate.com/eclipse/> တို့မှာ နောက်ဆုံးကြေညာချက်ကို ပြန်စစ်ပါ။ အချိန်ဇယားမှာ ရည်မှန်း/အစီအစဉ်ဟု ဖော်ပြထားသော ရက်စွဲကို အတည်ပြုပြီးဖြစ်သော ဖြစ်ရပ်နဲ့ မရောထွေးစေရန် ရည်ရွယ်ထားပါတယ်။
+Mission schedules and astronomy event dates can change. For Artemis III/IV, check the latest information at <https://www.nasa.gov/missions/artemis/>. Verify dates and mission details with the relevant official source before publishing updates.
 
-## Vercel မှာလည်း တင်ချင်ရင်
+## Deploy to Vercel
 
-1. Vercel → Add New → Project → GitHub repo ကို ရွေးပါ။ `vercel.json` ထဲမှာ build command နဲ့ output (`dist`) ပါပြီးသားမို့ ဘာမှ ပြင်စရာ မလိုပါဘူး။
-2. Project Settings → Environment Variables မှာ `NASA_API_KEY` (ရှိရင်) ထည့်ပါ။ Custom domain သုံးရင် `SITE_URL` (https://...) ကိုလည်း ထည့်ပါ။ မထည့်ရင် Vercel production URL ကို အလိုအလျောက် သုံးပါတယ်။
-3. ၃ နာရီတစ်ခါ data refresh ကို Vercel မှာလည်း လိုချင်ရင် Settings → Git → Deploy Hooks မှာ hook တစ်ခုဖန်တီးပြီး URL ကို GitHub repo ရဲ့ secret `VERCEL_DEPLOY_HOOK` အဖြစ် ထည့်ပါ။ မထည့်ရင်လည်း သတင်း၊ ISS တို့က browser ကနေ တိုက်ရိုက် ဆွဲလို့ အလုပ်လုပ်ပါတယ်။
-4. ဆိုက်နှစ်ခုလုံး တင်ထားရင် `SITE_URL` က အဓိက URL တစ်ခုကိုပဲ ညွှန်ပါ (Google အတွက် canonical တစ်ခုတည်းဖြစ်ရန်)။
+1. In Vercel, choose **Add New → Project** and select the GitHub repository. The `vercel.json` file already specifies the build command and output directory (`dist`), so the default settings should work.
+2. In **Project Settings → Environment Variables**, add `NASA_API_KEY` if you have one. If you use a custom domain, also set `SITE_URL` to its URL (`https://...`).
+3. To refresh data every three hours on Vercel as well, create a deploy hook under **Settings → Git → Deploy Hooks** and schedule it with an external cron service.
+4. If you deploy to both platforms, set `SITE_URL` to only the primary URL (used as the canonical URL for search engines).
