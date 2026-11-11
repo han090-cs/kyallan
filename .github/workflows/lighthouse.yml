@@ -1,0 +1,29 @@
+# Checks performance / accessibility / best-practices / SEO of the built site (mobile settings) on every push and pull request.
+# It never blocks the deploy: it is a separate workflow. Open the run's "Summary" or the uploaded report to see the scores,
+# and adjust the minimum scores in lighthouserc.json if they are too strict or too loose.
+name: Lighthouse
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build site
+        run: npm run build
+      - name: Run Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          configPath: ./lighthouserc.json
+          uploadArtifacts: true

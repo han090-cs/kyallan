@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+{{CSP}}
+<script>document.documentElement.classList.add('js');try{var f=parseFloat(localStorage.getItem('kyallan:fs'));if(f>=0.85&&f<=1.4)document.documentElement.style.setProperty('--fs',String(f))}catch(e){}</script>
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#04060f" />
+<title>{{NAME}} ({{LATIN}}) — {{TAGLINE}}</title>
+<meta name="description" content="{{DESC}}" />
+<meta name="robots" content="index,follow,max-image-preview:large" />
+{{CANONICAL_LINK}}
+<meta property="og:type" content="website" />
+<meta property="og:title" content="{{NAME}} · {{LATIN}} — {{TAGLINE}}" />
+<meta property="og:description" content="{{DESC}}" />
+<meta property="og:locale" content="my_MM" />
+{{OG_URL_META}}
+{{OG_IMAGE_META}}
+<link rel="icon" href="{{FAVICON}}" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="{{ICON192}}" />
+<link rel="manifest" href="{{MANIFEST}}" />
+<link rel="preload" href="{{FONT400}}" as="font" type="font/woff2" crossorigin />
+<script>try{var h=decodeURIComponent(location.hash.slice(1));var ids={{ROUTE_IDS}};if(ids.indexOf(h)>-1)document.documentElement.dataset.route="section";var t=localStorage.getItem("kyallan-theme");if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+<link rel="stylesheet" href="{{CSS}}" />
+</head>
+<body>
+<a class="skip" href="#main">အဓိက အကြောင်းအရာသို့ ကျော်ရန်</a>
+<div class="progress" id="progress" aria-hidden="true"></div>
+
+<header class="topbar">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="{{NAME}} — ထိပ်သို့">
+      <svg class="logo" viewBox="0 0 64 64" aria-hidden="true"><path d="M8 50C20 46 30 34 40 22" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-dasharray="1 8" fill="none"/><path d="M46 10l3.2 8.2 8.8.6-6.8 5.6 2.2 8.6L46 28.2l-7.4 4.8 2.2-8.6-6.8-5.6 8.8-.6z" fill="var(--gold)"/></svg>
+      <span>{{NAME}}<small class="en">{{LATIN}}</small></span>
+    </a>
+    <span class="now" id="now" aria-live="polite"></span>
+    <button class="ibtn" id="themeBtn" type="button" aria-label="အလင်း/အမှောင် ပြောင်းရန်"><span aria-hidden="true">🌓</span></button>
+    <button class="ibtn" id="fsBtn" type="button" aria-label="စာလုံးအရွယ် ပြောင်းရန်"><span aria-hidden="true">Aa</span></button>
+    <button class="ibtn menu" id="menuBtn" type="button" aria-haspopup="dialog" aria-controls="menu"><span aria-hidden="true">☰</span> မီနူး</button>
+  </div>
+</header>
+
+<dialog id="menu" aria-label="မီနူး">
+  <div class="sheet">
+    <div class="sheet-head"><b>{{NAME}} · မီနူး</b><button class="ibtn" id="menuClose" type="button" aria-label="ပိတ်ရန်">✕</button></div>
+    <nav class="mgrid">{{MENU}}</nav>
+  </div>
+</dialog>
+
+<main id="main">
+<div id="top"></div>
+{{HERO}}
+
+<div class="wrap explore">
+  <h2 class="ex-title">ဘယ်ကနေ စမလဲ?</h2>
+  {{EXPLORE}}
+</div>
+
+{{SECTIONS}}
+</main>
+
+{{FOOTER}}
+<p class="wrap buildnote small">{{NAME}} · {{LATIN}} · ပြင်ဆင်ချိန် {{BUILT}}</p>
+
+<button class="totop" id="toTop" type="button" aria-label="အပေါ်ဆုံးသို့" hidden>↑</button>
+<noscript><p class="wrap" style="padding:12px 0">Live widget၊ calculator စတဲ့ interactive အပိုင်းတွေအတွက် JavaScript ဖွင့်ထားဖို့ လိုပါတယ်။</p></noscript>
+<script src="{{JS}}" defer></script>
+<script>
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+    window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
+  }
+</script>
+</body>
+</html>

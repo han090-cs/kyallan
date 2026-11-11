@@ -1,0 +1,82 @@
+<section id="live">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">အပိုင်း ၁၃ · Live / API တိုက်ရိုက်</span>
+      <h2>အချိန်နဲ့တပြေးညီ ဒေတာတွေ — API ကနေ တိုက်ရိုက်</h2>
+    </div>
+    <p class="sec-lead">ဒီအပိုင်းက public API တွေကရတဲ့ နောက်ဆုံး အာကာသဒေတာကို ပြပါတယ် (<span class="livedot"></span> = live data)။ NASA APOD၊ ဥက္ကာခဲ၊ သတင်း၊ arXiv၊ အာကာသထဲက လူနဲ့ လွှတ်တင်မှု အချိန်ဇယားအချို့ကို GitHub Actions ကနေ snapshot အဖြစ် update လုပ်ပြီး၊ ISS တည်နေရာနဲ့ NASA image search တို့ကို browser က တိုက်ရိုက်ခေါ်ပါတယ်။ အင်တာနက်/API ခဏတာ မရရင် widget တစ်ခုချင်းစီမှာ ပြန်ကြိုးစားနိုင်တဲ့ အသိပေးစာ ပြပါမယ်။</p>
+
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card">
+        <h3><span class="livedot"></span>ISS အခု ဘယ်မှာလဲ<span class="src">wheretheiss.at API</span></h3>
+        <div id="wIss"><p class="meta">ဒေတာ ဆွဲနေပါတယ်…</p></div>
+        <p class="livenote">တစ်မိနစ်တစ်ကြိမ် အလိုအလျောက် ပြန် update လုပ်ပါတယ်။ မြင်ကွင်း (visibility) က "daylight" ဆိုရင် ISS အပေါ်မှာ နေရောင် ကျနေပြီး "eclipsed" ဆိုရင် ကမ္ဘာ့ အရိပ်ထဲမှာ ရှိနေတာပါ။</p>
+      </div>
+      <div class="card">
+        <h3><span class="livedot"></span>အခု အာကာသထဲမှာ လူ ဘယ်နှစ်ယောက် ရှိလဲ<span class="src">People-in-Space HTTPS feed</span></h3>
+        <div id="wPpl"><p class="meta">ဒေတာ ဆွဲနေပါတယ်…</p></div>
+        <p class="livenote">ISS နဲ့ Tiangong ဘူတာ နှစ်ခုလုံးက အဖွဲ့ဝင်တွေကို ပြထားတာပါ။</p>
+      </div>
+      <div class="card">
+        <h3><span class="livedot"></span>ယနေ့ အာကာသ ဓာတ်ပုံ (APOD)<span class="src">NASA APOD WordPress API</span></h3>
+        <div id="wApod"><p class="meta">ဒေတာ ဆွဲနေပါတယ်…</p></div>
+        <p class="livenote">NASA ရဲ့ Astronomy Picture of the Day — ၁၉၉၅ ကတည်းက နေ့တိုင်း ပုံတစ်ပုံနဲ့ ရှင်းလင်းချက် ထုတ်ပေးတဲ့ ဝန်ဆောင်မှုပါ။ ၂၀၂၆ စက်တင်ဘာကစပြီး APOD WordPress API ကို အသုံးပြုထားပါတယ်။</p>
+      </div>
+      <div class="card">
+        <h3><span class="livedot"></span>ယနေ့ ကမ္ဘာအနီး ဖြတ်သွားတဲ့ ဥက္ကာခဲများ<span class="src">NASA NeoWs API · DEMO_KEY</span></h3>
+        <div id="wNeo"><p class="meta">ဒေတာ ဆွဲနေပါတယ်…</p></div>
+        <p class="livenote">NASA ရဲ့ Near Earth Object စောင့်ကြည့် စနစ်က ခြေရာခံနေတဲ့ အရာဝတ္ထုတွေပါ။ "အနီးဆုံး" ဆိုတာတောင် ပုံမှန်အားဖြင့် လ နဲ့ ကမ္ဘာ့ အကွာအဝေးရဲ့ အဆ များစွာ ဝေးပါသေးတယ် — စိုးရိမ်စရာ မဟုတ်ပါ။</p>
+      </div>
+      <div class="card">
+        <h3><span class="livedot"></span>ကမ္ဘာ တစ်လုံးလုံးရဲ့ နောက်ဆုံး ဓာတ်ပုံ (EPIC)<span class="src">NASA EPIC · DSCOVR</span></h3>
+        <div id="wEpic"><p class="meta">ဒေတာ ဆွဲနေပါတယ်…</p></div>
+        <p class="livenote">ကမ္ဘာကနေ ၁.၅ သန်း km အကွာ L1 အမှတ်မှာ နေတဲ့ DSCOVR ဂြိုဟ်တုရဲ့ EPIC ကင်မရာက ရိုက်တဲ့ ပုံပါ။ API key မလိုပါဘူး။</p>
+      </div>
+      <div class="card">
+        <h3><span class="livedot"></span>arXiv မှာ နောက်ဆုံး တင်တဲ့ astro-ph စာတမ်းများ<span class="src">arXiv API</span></h3>
+        <div id="wArxiv"><p class="meta">ဒေတာ ဆွဲနေပါတယ်…</p></div>
+        <p class="livenote">စာတမ်း ခေါင်းစဉ်ကို နှိပ်ရင် arXiv စာမျက်နှာသို့ သွားပါမယ်။</p>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top:16px">
+      <h3><span class="livedot"></span>NASA ဓာတ်ပုံ Archive ရှာရန်<span class="src">NASA Image &amp; Video Library API · key မလို</span></h3>
+      <p style="color:var(--ink2); font-size:16px">NASA ရဲ့ တရားဝင် ဓာတ်ပုံ/ဗီဒီယို archive (ပုံ သန်းချီ) ထဲက ကိုယ် ရှာချင်တာ ရိုက်ထည့်ပါ — ဥပမာ <span class="en">nebula</span>, <span class="en">Apollo 11</span>, <span class="en">Mars</span>, <span class="en">Jupiter</span>။ ပုံကို နှိပ်ရင် NASA မူရင်း စာမျက်နှာ ပွင့်ပါမယ်။</p>
+      <div class="searchrow">
+        <input type="text" id="imgQ" value="Apollo 11" aria-label="NASA ဓာတ်ပုံ ရှာရန်" />
+        <button type="button" id="imgBtn">ရှာမယ်</button>
+      </div>
+      <div id="wImg"><p class="meta">ဒေတာ ဆွဲနေပါတယ်…</p></div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3><span class="livedot"></span>နောက်ဆုံး အာကာသ သတင်းများ<span class="src">Spaceflight News API</span></h3>
+      <div id="wNews"><p class="meta">ဒေတာ ဆွဲနေပါတယ်…</p></div>
+      <p class="livenote">အာကာသ သတင်း site တွေက နောက်ဆုံး ဆောင်းပါးတွေကို စုစည်း ပြတာပါ။ ခေါင်းစဉ်ကို နှိပ်ရင် မူရင်း သတင်း ပွင့်ပါမယ်။</p>
+    </div>
+    <div class="card" style="margin-top:16px">
+      <h3><span class="livedot"></span>လာမည့် အာကာသယာဉ် လွှတ်တင်မှုများ<span class="src">Launch Library 2 · cached</span></h3>
+      <div id="wLaunch"><p class="meta">လွှတ်တင်မှု အချိန်ဇယားကို ဆွဲယူနေပါတယ်…</p></div>
+      <p class="livenote">အချိန်တွေက UTC ဖြစ်ပြီး လွှတ်တင်မှုတွေကို နောက်ဆုံးအချိန်မှာ ရွှေ့ဆိုင်းနိုင်ပါတယ်။ ဒီဒေတာကို rate limit မကျော်စေဖို့ GitHub Actions ကနေ ၃ နာရီတစ်ခါ update လုပ်ပါတယ်။ <a href="https://lldev.thespacedevs.com/docs" target="_blank" rel="noopener">မူရင်း API အချက်အလက်</a></p>
+    </div>
+
+    <h3 style="margin:32px 0 6px">🛠️ Space API လမ်းညွှန် — ကိုယ်တိုင် Python နဲ့ ခေါ်သုံးလို့ရတဲ့ API များ</h3>
+    <p class="sec-lead" style="margin-bottom:12px">Data science လေ့လာသူ တစ်ယောက် ကိုယ်တိုင် project လုပ်ဖို့ သုံးလို့ရတဲ့ API အစစ်တွေပါ။ အများစုက key မလိုဘဲ/အခမဲ့ key နဲ့ စလို့ရတယ်။</p>
+    <div class="tblwrap">
+    <table class="tbl">
+      <tr><th>API</th><th>ဘာဒေတာ ရလဲ</th><th>Key လိုလား</th><th>စာရွက်/လမ်းညွှန်</th></tr>
+      <tr><td>NASA APIs (api.nasa.gov)</td><td>NeoWs ဥက္ကာခဲ၊ DONKI အာကာသမိုးလေဝသ စတဲ့ NASA data API များ</td><td>free key ရနိုင်; DEMO_KEY ကို IP တစ်ခုလျှင် ၃၀ calls/hour၊ ၅၀ calls/day ကန့်သတ်</td><td><a href="https://api.nasa.gov/" target="_blank" rel="noopener">api.nasa.gov</a></td></tr>
+      <tr><td>NASA APOD WordPress API</td><td>နေ့စဉ် အာကာသဓာတ်ပုံ၊ ပုံခေါင်းစဉ်၊ ရှင်းလင်းချက်နဲ့ credit</td><td>စမ်းသပ်ရန် key မလို; အများအပြားခေါ်သုံးလျှင် free NASA key သုံးရန်</td><td><a href="https://science.nasa.gov/wp-json/wp/v2/apod-basic/" target="_blank" rel="noopener">APOD API</a></td></tr>
+      <tr><td>NASA Image &amp; Video Library API</td><td>NASA ဓာတ်ပုံ/ဗီဒီယို/အသံ archive ရှာဖွေ + metadata</td><td>မလို</td><td><a href="https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf" target="_blank" rel="noopener">API Docs (PDF)</a></td></tr>
+      <tr><td>arXiv API</td><td>စာတမ်း ခေါင်းစဉ်, စာရေးသူ, အကျဉ်းချုပ်, အမျိုးအစား — Atom XML ပြန်ပေး</td><td>မလို (မှတ်ချက် — browser CORS မရှိလို့ Python/server-side က ခေါ်တာ အကောင်းဆုံး)</td><td><a href="https://info.arxiv.org/help/api/index.html" target="_blank" rel="noopener">arXiv API Help</a></td></tr>
+      <tr><td>Where the ISS at?</td><td>ISS နဲ့ အခြား ဂြိုဟ်တု ၅,၀၀၀+ ရဲ့ တည်နေရာ, အမြင့်, အမြန်နှုန်း, မြင်ကွင်း</td><td>မလို</td><td><a href="https://wheretheiss.at/w/developer" target="_blank" rel="noopener">Developer Docs</a></td></tr>
+      <tr><td>CelesTrak</td><td>ဂြိုဟ်တု/အာကာသ အပျက်အစီး အားလုံးရဲ့ ပတ်လမ်း ဒေတာ (GP/TLE format) — ကိုယ်တိုင် ပတ်လမ်း တွက်ချက်ဖို့ အခြေခံ ဒေတာ</td><td>မလို</td><td><a href="https://celestrak.org/NORAD/elements/" target="_blank" rel="noopener">NORAD Elements</a></td></tr>
+      <tr><td>Launch Library 2 (v2.3.0)</td><td>လာမည့် ဒုံးပျံ လွှတ်တင်မှု၊ mission၊ agency နဲ့ launch pad အချက်အလက်</td><td>အခြေခံအသုံးပြုမှုတွင် key မလို; တစ်နာရီ ၁၅ calls ကန့်သတ်ရှိလို့ cache သုံးသင့်</td><td><a href="https://lldev.thespacedevs.com/docs" target="_blank" rel="noopener">Official API Docs</a></td></tr>
+      <tr><td>Spaceflight News API</td><td>အာကာသ သတင်း ဆောင်းပါး, blog, အစီရင်ခံစာတွေ စုစည်း (သတင်း site ၅၀+)</td><td>မလို</td><td><a href="https://api.spaceflightnewsapi.net/v4/docs" target="_blank" rel="noopener">SNAPI Docs</a></td></tr>
+      <tr><td>NASA POWER API</td><td>နေရာ (lat/lon) အလိုက် နေရောင်ခြည်, အပူချိန်, မိုးရေချိန် နေ့/လ စဉ် ဒေတာ</td><td>မလို</td><td><a href="https://power.larc.nasa.gov/docs/services/api/" target="_blank" rel="noopener">POWER API Docs</a></td></tr>
+    </table>
+    </div>
+    <p class="small">စမ်းကြည့်ရန် အကြံ — Python မှာ <span class="en">requests</span> library နဲ့ <span class="en">https://science.nasa.gov/wp-json/wp/v2/apod-basic/?api_key=DEMO_KEY</span> ကို GET ခေါ်ပြီး JSON ကို <span class="en">pandas.json_normalize()</span> နဲ့ ဖွင့်ကြည့်တာက API လေ့ကျင့်ခန်း အစပျိုး အကောင်းဆုံးပါ။</p>
+    <div class="rule"></div>
+  </div>
+</section>

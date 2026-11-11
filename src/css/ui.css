@@ -1,0 +1,125 @@
+/* ========== ui.css — layout, navigation & device polish ========== */
+:root{ --safe-t:env(safe-area-inset-top,0px); --safe-b:env(safe-area-inset-bottom,0px); --safe-l:env(safe-area-inset-left,0px); --safe-r:env(safe-area-inset-right,0px); }
+html{ scroll-padding-top:calc(72px + var(--safe-t)); -webkit-text-size-adjust:100%; text-size-adjust:100% }
+body{ overflow-x:hidden; padding-bottom:var(--safe-b) }
+.wrap{ padding-left:max(18px,var(--safe-l)); padding-right:max(18px,var(--safe-r)) }
+.en{ font-family:ui-sans-serif,system-ui,"Segoe UI",sans-serif }
+:focus-visible{ outline:3px solid var(--cyan); outline-offset:2px; border-radius:6px }
+.skip{ position:absolute; left:12px; top:-60px; z-index:100; background:var(--gold); color:#231a02; padding:10px 16px; border-radius:10px; font-weight:700 }
+.skip:focus{ top:calc(8px + var(--safe-t)) }
+
+/* progress bar */
+.progress{ position:fixed; top:0; left:0; height:3px; width:100%; transform-origin:0 50%; transform:scaleX(0); background:linear-gradient(90deg,var(--cyan),var(--gold)); z-index:70; pointer-events:none }
+
+/* header */
+.topbar{ position:sticky; top:0; z-index:50; padding-top:var(--safe-t); background:color-mix(in srgb,var(--bg) 90%,transparent); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-bottom:1px solid var(--line) }
+.bar{ display:flex; align-items:center; gap:10px; min-height:60px }
+.brand{ display:flex; align-items:center; gap:10px; color:var(--ink); font-weight:800; font-size:19px; line-height:1.2; flex:none }
+.brand:hover{ text-decoration:none }
+.brand small{ display:block; font-size:11px; font-weight:700; letter-spacing:.22em; text-transform:uppercase; color:var(--ink3) }
+.logo{ width:34px; height:34px; color:var(--cyan); flex:none }
+.now{ flex:1; min-width:0; text-align:right; color:var(--ink3); font-size:14px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+.ibtn{ font:inherit; font-weight:700; font-size:15.5px; cursor:pointer; min-height:44px; min-width:44px; padding:6px 14px; border-radius:12px; border:1px solid var(--line); background:var(--panel); color:var(--ink); display:inline-flex; align-items:center; justify-content:center; gap:7px; flex:none }
+.ibtn:hover{ border-color:var(--accent) }
+.ibtn.menu{ background:var(--gold); border-color:var(--gold); color:#231a02 }
+@media (max-width:520px){ .now{ display:none } .bar{ justify-content:space-between } .brand{ font-size:17px } .bar .ibtn:first-of-type{ margin-left:auto } }
+
+/* menu drawer (native <dialog>: focus trap + Esc for free) */
+dialog#menu{ border:0; padding:0; margin:0; width:100%; max-width:none; height:100%; max-height:none; background:transparent; color:var(--ink) }
+dialog#menu::backdrop{ background:rgba(3,5,14,.6); backdrop-filter:blur(3px) }
+.sheet{ margin-left:auto; height:100%; width:min(760px,100%); overflow-y:auto; overscroll-behavior:contain; background:var(--bg); border-left:1px solid var(--line); padding:calc(14px + var(--safe-t)) max(18px,var(--safe-r)) calc(28px + var(--safe-b)) 18px }
+.sheet-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; position:sticky; top:calc(-14px - var(--safe-t)); background:var(--bg); padding:calc(14px + var(--safe-t)) 0 8px; margin-top:calc(-14px - var(--safe-t)) }
+.mgrid{ display:grid; grid-template-columns:1fr 1fr; gap:6px 26px }
+.mgroup h3{ font-size:14px; color:var(--accent-ink); margin:16px 0 6px }
+.mgroup a{ display:flex; align-items:center; gap:10px; min-height:46px; padding:6px 10px; border-radius:10px; color:var(--ink); font-weight:700; font-size:16px; line-height:1.4 }
+.mgroup a:hover{ background:var(--panel); text-decoration:none }
+.mgroup a.on{ background:color-mix(in srgb,var(--gold) 20%,transparent); box-shadow:inset 3px 0 0 var(--gold) }
+@media (max-width:620px){ .mgrid{ grid-template-columns:1fr } }
+
+/* explore grid (home) */
+.explore{ padding-top:34px }
+.ex-title{ margin-bottom:4px }
+.egroup{ margin:22px 0 10px; color:var(--accent-ink); font-size:16px }
+.egrid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:10px }
+.egrid a{ display:block; background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:13px 15px; color:var(--ink); min-height:64px; transition:border-color .15s,transform .15s }
+.egrid a b{ display:block; font-size:16px; line-height:1.5 }
+.egrid a span:not([aria-hidden]){ display:block; color:var(--ink3); font-size:13.5px; line-height:1.55; margin-top:2px }
+.egrid a:hover{ text-decoration:none; border-color:var(--accent) }
+@media (hover:hover){ .egrid a:hover,.card:hover{ transform:translateY(-2px) } }
+
+.sec-head h2{ text-wrap:balance }
+.sec-lead,.card p,.paper p{ text-wrap:pretty }
+.rule{ margin-top:44px }
+
+/* hero polish */
+.hero .inner{ padding-top:clamp(44px,9vw,96px); padding-bottom:clamp(30px,5vw,52px) }
+.stat b{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0 .3em }
+.hero .kicker{ max-width:100% }
+@media (min-width:1500px){ .wrap{ max-width:1280px } body{ font-size:18px } }
+@media (min-width:2200px){ .wrap{ max-width:1500px } body{ font-size:19px } }
+@media (max-width:380px){ .stat-strip .wrap{ grid-template-columns:1fr } .hero .cta .btn{ flex:1 1 100%; text-align:center } }
+@media (orientation:landscape) and (max-height:480px){ .hero .inner{ padding-top:28px; padding-bottom:20px } section{ padding-top:30px } }
+.btn{ min-height:46px; display:inline-flex; align-items:center }
+
+/* tables never break the page width */
+.tblwrap{ max-width:100%; -webkit-overflow-scrolling:touch }
+
+/* click-to-load video */
+.vidbtn{ position:absolute; inset:0; width:100%; border:0; cursor:pointer; color:#fff; font:inherit; font-weight:700; background:radial-gradient(circle at 30% 30%,#1b2a55,#04060f); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:16px; text-align:center }
+.vidbtn i{ font-style:normal; width:64px; height:64px; border-radius:50%; background:var(--gold); color:#231a02; display:grid; place-items:center; font-size:26px; padding-left:5px }
+.vidbtn small{ font-weight:400; color:#b9c6ee; font-size:14px }
+
+/* live widget states */
+.badge-time{ display:inline-block; font-size:12.5px; color:var(--ink3); margin-left:6px }
+.retry{ font:inherit; font-weight:700; cursor:pointer; min-height:44px; padding:6px 16px; border-radius:10px; border:1px solid var(--gold); background:transparent; color:var(--accent-ink); margin-top:8px }
+.keybox{ margin-top:14px; font-size:14.5px; color:var(--ink3) }
+.keybox summary{ font-size:14.5px }
+.keybox input{ width:100%; font:inherit; min-height:44px; padding:8px 12px; border:1px solid var(--line); border-radius:10px; background:var(--panel2); color:var(--ink); margin:8px 0 }
+.skel{ height:14px; border-radius:7px; background:linear-gradient(90deg,var(--panel2),var(--line),var(--panel2)); background-size:200% 100%; animation:sh 1.3s linear infinite; margin:8px 0 }
+@keyframes sh{ to{ background-position:-200% 0 } }
+
+/* back to top */
+.totop{ position:fixed; right:max(16px,var(--safe-r)); bottom:calc(16px + var(--safe-b)); z-index:40; width:48px; height:48px; border-radius:50%; border:1px solid var(--line); background:var(--panel); color:var(--ink); font-size:22px; cursor:pointer; box-shadow:var(--shadow) }
+.totop[hidden]{ display:none }
+.buildnote{ text-align:center; padding:0 0 28px }
+
+@media (prefers-reduced-motion:reduce){ .skel,.progress{ animation:none; transition:none } .egrid a,.card{ transition:none } }
+@media print{ .topbar,.progress,.totop,.hero .cta,dialog,.explore{ display:none !important } body{ background:#fff; color:#000 } .card,.panel{ box-shadow:none; break-inside:avoid } }
+
+/* ---------- one-section-at-a-time view ---------- */
+[hidden]{ display:none !important }
+/* Apply the deep-link view before app JavaScript runs to prevent a full-page layout jump. */
+html[data-route="section"] #hero,html[data-route="section"] .explore,html[data-route="section"] main>section:not(:target){display:none!important}
+main{ min-height:72vh }
+section{ padding-top:22px }
+.back{ display:inline-flex; align-items:center; min-height:44px; margin-bottom:6px; font-weight:700; font-size:15.5px }
+.pager{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:40px 0 4px }
+.pager a{ display:block; padding:14px 16px; border:1px solid var(--line); border-radius:14px; background:var(--panel); color:var(--ink); min-height:68px }
+.pager a:hover{ text-decoration:none; border-color:var(--accent) }
+.pager a small{ display:block; color:var(--ink3); font-size:13.5px }
+.pager a b{ display:block; font-size:16.5px; line-height:1.5 }
+.pager .next{ grid-column:2; text-align:right }
+.pager .prev:only-child{ grid-column:1 }
+@media (max-width:520px){ .pager{ grid-template-columns:1fr } .pager .next{ grid-column:1 } }
+.search{ margin:10px 0 6px; max-width:560px }
+.search input{ width:100%; font:inherit; font-size:16.5px; min-height:50px; padding:10px 16px; border-radius:14px; border:1px solid var(--line); background:var(--panel); color:var(--ink) }
+.hero h1 .gold{ color:inherit }
+
+.hero .inner{ padding-left:max(18px,var(--safe-l)); padding-right:max(18px,var(--safe-r)) }
+.hero .kicker{ font-size:15px; line-height:1.6 }
+
+/* NASA image strips (gallery.js) */
+.nasa-gallery:not(:empty){margin-top:30px}
+.nasa-gallery h3{margin:0 0 12px}
+.ngrid{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
+.nfig{margin:0; min-width:0}
+.nfig a{display:block; border-radius:12px; overflow:hidden; border:1px solid var(--line); background:var(--panel2); line-height:0}
+.nfig img{width:100%; aspect-ratio:4/3; object-fit:cover; display:block; transition:transform .25s}
+.nfig a:hover img{transform:scale(1.04)}
+.nfig figcaption{font-size:13px; line-height:1.45; color:var(--ink2); margin-top:6px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+@media (min-width:700px){.ngrid{grid-template-columns:repeat(3,1fr); gap:14px}}
+@media (prefers-reduced-motion:reduce){.nfig img{transition:none} .nfig a:hover img{transform:none}}
+
+/* reader text-size button (Aa): the header itself is never scaled so it always fits on small phones */
+.topbar{--fs:1}
+#fsBtn{padding:6px 10px; letter-spacing:-.5px}

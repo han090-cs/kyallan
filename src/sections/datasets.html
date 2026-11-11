@@ -1,0 +1,91 @@
+<section id="datasets">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="tag">အပိုင်း ၁၂ · Datasets</span>
+      <h2>ကိုယ်တိုင် လက်တွေ့ လုပ်ကြည့်လို့ရတဲ့ Space Dataset အစစ်များ</h2>
+    </div>
+    <p class="sec-lead">အာကာသ ဒေတာရဲ့ ကောင်းတဲ့ အချက်က အများစုက <b>အခမဲ့ public</b> ဖြစ်တယ်။ အောက်က portal တွေက တကယ့် mission ဒေတာတွေ ဖြစ်ပြီး Python/pandas နဲ့ ချက်ချင်း စမ်းလို့ရတာတွေ ရွေးထားတယ်။</p>
+
+    <div class="grid g2" style="margin-top:18px">
+      <div class="card">
+        <h3><span class="badge b-ds">PORTAL</span>NASA Open Data Portal</h3>
+        <p class="meta">data.nasa.gov · Dataset ၄၀,၀၀၀+ · CSV, JSON, API</p>
+        <p>NASA စင်တာ အားလုံးရဲ့ dataset စုစည်းရာ တစ်နေရာတည်း — mission telemetry, ရာသီဥတု, ဂြိုဟ်တု ပုံရိပ်ကနေ patent/software catalog အထိ။ <b>DS လေ့ကျင့်ရန်:</b> keyword နဲ့ ရှာပြီး CSV တစ်ခု download ချ၊ pandas နဲ့ EDA လုပ်ကြည့်တာက အစပျိုး အကောင်းဆုံး နည်းလမ်းပါ။</p>
+        <a href="https://data.nasa.gov/" target="_blank" rel="noopener">data.nasa.gov သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">CATALOG</span>NASA Exoplanet Archive</h3>
+        <p class="meta">exoplanetarchive.ipac.caltech.edu · CSV, VOTable · အပတ်စဉ် update</p>
+        <p>အတည်ပြုပြီး exoplanet အားလုံးရဲ့ အဓိက table (Planetary Systems) — ဂြိုဟ် အလေးချိန်၊ အချင်း၊ ပတ်လမ်း ကာလ၊ ကြယ် အပူချိန်၊ ရှာဖွေ နည်းလမ်း စတာတွေ column ဒါဇင်ချီ ပါတယ်။ <b>DS လေ့ကျင့်ရန်:</b> habitable zone ထဲက ဂြိုဟ်တွေကို filter လုပ်တာ၊ discovery method အလိုက် distribution ကြည့်တာ၊ missing value တွေ ကိုင်တွယ်တာတွေ အတွက် သင်ခန်းစာ ကောင်းပါ။ TAP API နဲ့လည်း SQL ပုံစံ query ရိုက်လို့ရတယ်။</p>
+        <a href="https://exoplanetarchive.ipac.caltech.edu/" target="_blank" rel="noopener">Exoplanet Archive သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">ARCHIVE</span>MAST — Mikulski Archive for Space Telescopes</h3>
+        <p class="meta">archive.stsci.edu (STScI) · FITS ပုံရိပ်/spectrum · Hubble, JWST, Kepler, TESS</p>
+        <p>Hubble, JWST အပါအဝင် တယ်လီစကုပ် mission တွေရဲ့ ပုံရိပ်နဲ့ spectrum ဒေတာ မူရင်း သိုလှောင်ရာ။ Kepler light curve တွေလည်း ဒီမှာ ရှိတယ်။ <b>DS လေ့ကျင့်ရန်:</b> Kepler/TESS light curve (အချိန်နဲ့ အလင်း တိုင်းတာချက် time series) ကနေ transit signal ရှာတဲ့ mini-project က နာမည်ကြီး လေ့ကျင့်ခန်းပါ။ Python ဆို <span class="en">astroquery</span> library နဲ့ program ကနေ တိုက်ရိုက် ဆွဲယူနိုင်တယ်။</p>
+        <a href="https://archive.stsci.edu/missions-and-data/kepler" target="_blank" rel="noopener">MAST Kepler Archive သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">API</span>NASA POWER</h3>
+        <p class="meta">power.larc.nasa.gov · JSON, CSV, NetCDF · API key မလို</p>
+        <p>ကမ္ဘာ ဘယ်နေရာ (lat/lon) အတွက်မဆို နေရောင်ခြည်၊ အပူချိန်၊ မိုးရေချိန်၊ လေ စတဲ့ ရာသီဥတု ကိန်းတွေ နေ့/လ အလိုက် ရတဲ့ API။ မြန်မာ အပါအဝင် ဘယ်နေရာမဆို အလုပ်လုပ်တယ်။ <b>DS လေ့ကျင့်ရန်:</b> API ကနေ JSON ဆွဲ → DataFrame ပြောင်း → time series analysis/forecasting လေ့ကျင့်ဖို့ အသင့်တော်ဆုံး dataset တွေထဲက တစ်ခုပါ။ (မှတ်ချက် — မြန်မာ တောင်တန်း ဒေသတွေမှာ မိုးရေချိန် ကိန်းက လက်တွေ့ထက် နည်းနိုင်တာမို့ cross-check လုပ်တာ အကောင်းဆုံးပါ။)</p>
+        <a href="https://power.larc.nasa.gov/docs/services/api/" target="_blank" rel="noopener">POWER API Docs သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">API</span>NASA APIs (api.nasa.gov)</h3>
+        <p class="meta">api.nasa.gov · JSON · အခမဲ့ API key (DEMO_KEY နဲ့ စမ်းလို့ရ)</p>
+        <p>တစ်နေရာတည်းက API အစုံ — <b>APOD</b> (နေ့တိုင်း အာကာသ ပုံ + ရှင်းလင်းချက်)၊ <b>Mars Rover Photos</b> (rover ကင်မရာ ပုံအစစ်တွေ)၊ <b>NeoWs</b> (ကမ္ဘာနား ဖြတ်သွားတဲ့ ဥက္ကာခဲတွေ)၊ <b>EPIC</b> (ကမ္ဘာ အပြည့်ပုံ နေ့တိုင်း)။ <b>DS လေ့ကျင့်ရန်:</b> API response JSON ကို parse လုပ်တာ၊ pagination, rate limit ကိုင်တွယ်တာ လေ့ကျင့်ဖို့ အကောင်းဆုံး အစပျိုးပါ။</p>
+        <a href="https://api.nasa.gov/" target="_blank" rel="noopener">api.nasa.gov သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">EARTH DATA</span>NASA Earthdata / EOSDIS</h3>
+        <p class="meta">earthdata.nasa.gov · HDF5, GeoTIFF, NetCDF · ဂြိုဟ်တု mission ၄၀+</p>
+        <p>ကမ္ဘာ လေ့လာ ဂြိုဟ်တုတွေရဲ့ ဒေတာ အကြီးစား archive — Terra, Aqua, Landsat, ICESat-2 စတာတွေ၊ စုစုပေါင်း 40+ petabyte။ အခမဲ့ Earthdata Login အကောင့် လိုတယ်။ <b>DS လေ့ကျင့်ရန်:</b> မိုးရေချိန် (GPM IMERG)၊ မြေပြင် အပူချိန် (MODIS) ဒေတာတွေနဲ့ မြန်မာ အတွက် မုတ်သုံ/ရေကြီးမှု analysis လုပ်လို့ရတယ် — raster data ကိုင်တွယ်နည်း သင်ယူဖို့ စံချိန်တင် နေရာပါ။</p>
+        <a href="https://earthdata.nasa.gov/" target="_blank" rel="noopener">Earthdata သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">CATALOG</span>Gaia Archive (ESA)</h3>
+        <p class="meta">ESA Gaia DR3 · ကြယ် ၁.၈ ဘီလီယံ · ADQL query ဖြင့်ရယူ</p>
+        <p>အပေါ်က စာတမ်းမှာ ပြောတဲ့ Gaia DR3 catalog အပြည့်အစုံကို query ရိုက်ပြီး subset ဆွဲယူနိုင်တဲ့ နေရာ။ table ကြီးလွန်းလို့ အရင် စစ်ထုတ် (filter) ပြီးမှ download ရတာကိုက big data အတွေ့အကြုံ တစ်ခုပါ။ <b>DS လေ့ကျင့်ရန်:</b> parallax ကနေ အကွာအဝေး တွက်တာ၊ Hertzsprung–Russell diagram ကိုယ်တိုင် ပြန်ဆွဲကြည့်တာ (scatter plot သိန်းချီနဲ့!) က လက်တွေ့ အရသာ ရှိတဲ့ project ဖြစ်တယ်။</p>
+        <a href="https://gea.esac.esa.int/archive/" target="_blank" rel="noopener">Gaia Archive သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">KAGGLE</span>Kaggle Space Datasets</h3>
+        <p class="meta">kaggle.com/datasets · CSV အသင့်သုံး အရွယ်အစားတွေ</p>
+        <p>အစပျိုး အတွက် အလွယ်ဆုံး လမ်းကြောင်း — Kaggle မှာ "NASA", "exoplanet", "Kepler", "meteorite landings", "UFO sightings", "star classification" လို့ ရှာရင် community က သန့်စင်ပြီး တင်ထားတဲ့ CSV တွေ ရမယ်။ အထူးသဖြင့် <b>NASA Meteorite Landings</b> (ကမ္ဘာပေါ် ကျတဲ့ ဥက္ကာခဲ မှတ်တမ်း ၄၅,၀၀၀+) နဲ့ <b>Kepler Exoplanet Search Results</b> တွေက EDA/classification လေ့ကျင့်ဖို့ နာမည်ကြီးတယ်။ မူရင်း mission archive တွေလောက် မတိကျတာမို့ ရလဒ် ထုတ်ပြန်ရင် မူရင်း အရင်းအမြစ်နဲ့ ပြန်စစ်တာ အကောင်းဆုံးပါ။</p>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">ARCHIVE</span>ESO Science Archive</h3>
+        <p class="meta">archive.eso.org · European Southern Observatory · VLT, ALMA စသော ဒေတာ</p>
+        <p>ချီလီက ကမ္ဘာ့ အကောင်းဆုံး မြေပြင် တယ်လီစကုပ်တွေ (VLT, ALMA — ESO က မိတ်ဖက်) ရဲ့ လေ့လာချက် ဒေတာ မူရင်း archive။ သတ်မှတ် ပိုင်ဆိုင်ခွင့် ကာလ (ပုံမှန် ၁ နှစ်) ကျော်ရင် ဒေတာ အကုန် public ဖြစ်တယ် — ဆိုလိုတာက ပညာရှင်တွေ ရိုက်ထားတဲ့ ပုံအစစ်/စပက်ထရမ် အစစ်တွေကို ကိုယ်တိုင် ဒေါင်း ပြီး ပြန် analysis လုပ်လို့ရတယ်။ <b>DS လေ့ကျင့်ရန်:</b> raw data ကို calibration လုပ်တဲ့ လုပ်ငန်းစဉ် ကိုယ်တိုင် လုပ်ကြည့်တာက astronomy data pipeline ရဲ့ အရသာကို ရစေမယ်။</p>
+        <a href="https://archive.eso.org/" target="_blank" rel="noopener">ESO Archive သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">ARCHIVE</span>NASA PDS — Planetary Data System</h3>
+        <p class="meta">pds.nasa.gov · ဂြိုဟ် mission အားလုံးရဲ့ ဒေတာ အပြည့်အစုံ</p>
+        <p>NASA ဂြိုဟ် လေ့လာ mission တိုင်းရဲ့ သိပ္ပံ ဒေတာကို ရေရှည် သိမ်းဆည်းထားတဲ့ စနစ် — Voyager ကနေ Perseverance အထိ။ ပုံ၊ spectrum, မြေပုံ (map) ဒေတာတွေ node အလိုက် (Geosciences, Imaging, Atmospheres…) ခွဲထားတယ်။ <b>DS လေ့ကျင့်ရန်:</b> Mars/CTX ပုံတွေနဲ့ Mars မျက်နှာပြင် crater ရေတွက်တာ၊ လ မျက်နှာပြင် LOLA အမြင့် ဒေတာနဲ့ မြေပုံ ဆွဲတာတွေက ဒီကဒေတာနဲ့ လုပ်တဲ့ project တွေပါ။</p>
+        <a href="https://pds.nasa.gov/" target="_blank" rel="noopener">NASA PDS သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">SURVEY</span>SDSS — Sloan Digital Sky Survey</h3>
+        <p class="meta">sdss.org · ကောင်းကင် စစ်တမ်း · galaxy သန်း ၁၀၀+ catalog</p>
+        <p>ကောင်းကင်ရဲ့ သုံးပုံတစ်ပုံကို စနစ်တကျ ဓာတ်ပုံ/spectrum ရိုက်ထားတဲ့ စစ်တမ်း အကြီးစား။ Galaxy, ကြယ်, quasar သန်းချီရဲ့ catalog က public ဖြစ်ပြီး SkyServer ကနေ SQL query နဲ့ ကိုယ်တိုင် စစ်ထုတ် ယူလို့ရတယ်။ <b>DS လေ့ကျင့်ရန်:</b> galaxy တွေကို အရောင်/ပုံသဏ္ဍာန် အလိုက် classification လုပ်တဲ့ ML project တွေရဲ့ အခြေခံ ဒေတာ အရင်းအမြစ် ဖြစ်ပြီး Galaxy Zoo လို citizen-science label တွေနဲ့ပါ တွဲသုံးလို့ရတယ်။</p>
+        <a href="https://www.sdss.org/" target="_blank" rel="noopener">SDSS သို့သွားရန် →</a>
+      </div>
+      <div class="card">
+        <h3><span class="badge b-ds">REPOSITORY</span>Zenodo Datasets</h3>
+        <p class="meta">zenodo.org · CERN လည်ပတ် · DOI ပါသော dataset များ</p>
+        <p>သုတေသနသမားတွေ စာတမ်းနဲ့ အတူ တွဲတင်ထားတဲ့ dataset အစစ်တွေ ရှာလို့ အကောင်းဆုံး နေရာတွေထဲက တစ်ခု။ တစ်ခုချင်းစီမှာ DOI ပါလို့ ကိုယ့် project မှာ တိတိကျကျ ကိုးကားလို့ရတယ်။ <b>DS လေ့ကျင့်ရန်:</b> "exoplanet", "light curve", "galaxy classification" လိုမျိုး ရှာပြီး စာတမ်း တစ်စောင်ရဲ့ မူရင်း ဒေတာကို ဒေါင်း၊ စာတမ်းထဲက ရလဒ်ကို ကိုယ်တိုင် ပြန် reproduce လုပ်ကြည့်တာ အဆင့်မြင့် လေ့ကျင့်ခန်း ဖြစ်တယ်။</p>
+        <a href="https://zenodo.org/" target="_blank" rel="noopener">Zenodo သို့သွားရန် →</a>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px">
+      <h3>🛠️ စစချင်း Project အိုင်ဒီယာ ၃ ခု (အဆင့်လိုက်)</h3>
+      <p><b>အဆင့် ၁ (EDA):</b> Exoplanet Archive CSV ကို ဒေါင်းပြီး "ရှာနည်း (discovery method) အလိုက် ဂြိုဟ် အရေအတွက် ဘယ်လို ပြောင်းလာသလဲ"၊ "habitable zone ဂြိုဟ်တွေရဲ့ အရွယ်အစား ဖြန့်ဖြူးမှု" ကို plot ဆွဲကြည့်ပါ။<br/>
+      <b>အဆင့် ၂ (Time Series):</b> NASA POWER API ကနေ မန္တလေး/မိုးကုတ် အတွက် နှစ် ၂၀ မိုးရေချိန် ဆွဲပြီး မုတ်သုံ pattern ကို analysis လုပ်၊ ရိုးရှင်းတဲ့ forecast model စမ်းကြည့်ပါ။<br/>
+      <b>အဆင့် ၃ (ML):</b> Kepler light curve ဒေတာကနေ transit ရှိတဲ့/မရှိတဲ့ ကြယ်တွေကို classification model တစ်ခု train ကြည့်ပါ — feature engineering အဖြစ် period, depth, duration တွေ သုံးနိုင်တယ်။</p>
+    </div>
+    <div class="rule"></div>
+  </div>
+</section>

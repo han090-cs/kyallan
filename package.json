@@ -1,0 +1,17 @@
+{
+  "name": "kyallan",
+  "version": "2.2.3",
+  "private": true,
+  "type": "module",
+  "description": "ကြယ်လမ်း (Kyallan) — မြန်မာဘာသာ အာကာသ website",
+  "scripts": {
+    "fetch": "node scripts/fetch-data.mjs",
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate-site.mjs",
+    "start": "node scripts/build.mjs && node scripts/serve.mjs",
+    "start:live": "node scripts/fetch-data.mjs && node scripts/build.mjs && node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

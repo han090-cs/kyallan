@@ -1,0 +1,156 @@
+{
+  "site": {
+    "name": "ကြယ်လမ်း",
+    "latin": "Kyallan",
+    "tagline": "ကြယ်တွေဆီ သွားတဲ့ လမ်း",
+    "description": "မြန်မာဘာသာဖြင့် အာကာသပညာ — NASA၊ အာကာသဘူတာများ၊ နေအဖွဲ့အစည်း၊ ကြယ်များ၊ စကြဝဠာ၊ live ISS ဒေတာ၊ အာကာသသတင်းနှင့် ဒုံးပျံလွှတ်တင်မှု အချိန်ဇယား။",
+    "url": ""
+  },
+  "groups": [
+    {
+      "group": "ယနေ့",
+      "items": [
+        {
+          "id": "tonight",
+          "icon": "🌙",
+          "title": "ဒီနေ့ ကောင်းကင်",
+          "desc": "ယနေ့ည လ အဆင့်၊ မြင်ရမယ့် ဂြိုဟ်တွေ"
+        },
+        {
+          "id": "live",
+          "icon": "📡",
+          "title": "Live ဒေတာ",
+          "desc": "ISS တည်နေရာ၊ ယနေ့ ဓာတ်ပုံ၊ ဥက္ကာခဲ၊ သတင်း"
+        }
+      ]
+    },
+    {
+      "group": "အာကာသ စူးစမ်းရေး",
+      "items": [
+        {
+          "id": "nasa",
+          "icon": "🚀",
+          "title": "NASA",
+          "desc": "Mercury မှ Artemis ထိ"
+        },
+        {
+          "id": "agencies",
+          "icon": "🌍",
+          "title": "အခြား အေဂျင်စီများ",
+          "desc": "ESA, JAXA, ISRO, CNSA…"
+        },
+        {
+          "id": "stations",
+          "icon": "🛰️",
+          "title": "အာကာသဘူတာများ",
+          "desc": "ISS, Tiangong, Mir, Skylab"
+        },
+        {
+          "id": "people",
+          "icon": "🧑‍🚀",
+          "title": "အာကာသယာဉ်မှူးများ",
+          "desc": "Gagarin မှ စံချိန်ရှင်များထိ"
+        },
+        {
+          "id": "rockets",
+          "icon": "🚀",
+          "title": "ဒုံးပျံ နှိုင်းယှဉ်ဇယား",
+          "desc": "Saturn V မှ Starship ထိ"
+        },
+        {
+          "id": "telescopes",
+          "icon": "🔭",
+          "title": "တယ်လီစကုပ်များ",
+          "desc": "Hubble, Webb နှင့် အခြား"
+        },
+        {
+          "id": "timeline",
+          "icon": "⏳",
+          "title": "အချိန်မှတ်တမ်း",
+          "desc": "၁၉၅၇ မှ ၂၀၂၆ — အဓိကမှတ်တိုင်များ"
+        }
+      ]
+    },
+    {
+      "group": "စကြဝဠာ",
+      "items": [
+        {
+          "id": "solar",
+          "icon": "🪐",
+          "title": "နေအဖွဲ့အစည်း",
+          "desc": "ဂြိုဟ် ၈ လုံး + Explorer"
+        },
+        {
+          "id": "moonmars",
+          "icon": "🌕",
+          "title": "လနှင့် Mars",
+          "desc": "လအဆင့်၊ ရေခဲ၊ Mars mission"
+        },
+        {
+          "id": "stars",
+          "icon": "⭐",
+          "title": "ကြယ်များ",
+          "desc": "ကြယ်ဘဝသံသရာ၊ spectral type"
+        },
+        {
+          "id": "deep",
+          "icon": "🌌",
+          "title": "အာကာသ နက်နက်",
+          "desc": "Black hole၊ Galaxy"
+        }
+      ]
+    },
+    {
+      "group": "ကိုယ်တိုင် စမ်းကြည့်ရန်",
+      "items": [
+        {
+          "id": "calculator",
+          "icon": "🧮",
+          "title": "အလေးချိန် / အသက် တွက်ရန်",
+          "desc": "အခြား ဂြိုဟ်ပေါ်မှာ ဘယ်လောက်လေးမလဲ"
+        },
+        {
+          "id": "observe",
+          "icon": "🔭",
+          "title": "ကောင်းကင်ကြည့်ရန်",
+          "desc": "မြန်မာကနေ မြင်ရတာတွေ"
+        },
+        {
+          "id": "calendar",
+          "icon": "🗓️",
+          "title": "အာကာသ ပြက္ခဒိန်",
+          "desc": "၂၀၂၆–၂၇ meteor shower၊ နေကြတ်/လကြတ်"
+        },
+        {
+          "id": "gallery",
+          "icon": "🎬",
+          "title": "Video နှင့် အသံ",
+          "desc": "NASA တရားဝင် မီဒီယာ"
+        }
+      ]
+    },
+    {
+      "group": "လေ့လာရေး ရင်းမြစ်",
+      "items": [
+        {
+          "id": "papers",
+          "icon": "📚",
+          "title": "သုတေသနစာတမ်းများ",
+          "desc": "arXiv / journal မြန်မာအကျဉ်းချုပ်"
+        },
+        {
+          "id": "datasets",
+          "icon": "💾",
+          "title": "Space Datasets",
+          "desc": "NASA Open Data, Exoplanet Archive…"
+        },
+        {
+          "id": "glossary",
+          "icon": "📖",
+          "title": "အသုံးအနှုန်း / FAQ",
+          "desc": "ဝေါဟာရနဲ့ မေးခွန်းများ"
+        }
+      ]
+    }
+  ]
+}

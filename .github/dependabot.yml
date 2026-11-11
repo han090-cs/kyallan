@@ -1,0 +1,10 @@
+# Keeps the GitHub Actions used by deploy.yml (checkout, setup-node, cache, pages...) up to date.
+# Dependabot opens a pull request when a newer version exists, so the deploy never breaks from outdated actions.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"

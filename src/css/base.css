@@ -1,0 +1,286 @@
+@font-face{font-family:"Padauk"; src:url("../assets/fonts/padauk-400.woff2") format("woff2"), local("Padauk"), local("Padauk Book"); font-weight:400; font-style:normal; font-display:swap}
+@font-face{font-family:"Padauk"; src:url("../assets/fonts/padauk-700.woff2") format("woff2"), local("Padauk Bold"), local("Padauk Book Bold"); font-weight:700; font-style:normal; font-display:swap}
+:root{
+  color-scheme: light dark;
+  --bg:#edf0f7; --bg2:#e2e8f4; --panel:#ffffff; --panel2:#f4f6fb;
+  --ink:#0d1330; --ink2:#3c4568; --ink3:#68719a;
+  --line:#ccd4e8; --accent:#b97e10; --accent-ink:#8a5f06;
+  --cyan:#0e7fa8; --cyan-soft:#e0f2f9;
+  --gold:#f0a824; --star:#c47b12;
+  --good:#177245; --chip:#e6ebf7;
+  --shadow:0 10px 30px rgba(13,19,48,.10);
+  --hero-ink:#f4f7ff;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#04060f; --bg2:#070b1a; --panel:#0b1122; --panel2:#0e1730;
+    --ink:#e8ecfa; --ink2:#aeb8dc; --ink3:#7e89b5;
+    --line:#1e2a4a; --accent:#f0b13e; --accent-ink:#f5c86a;
+    --cyan:#5ec8e8; --cyan-soft:#0d2438;
+    --gold:#f0a824; --star:#f5c86a;
+    --good:#4cc983; --chip:#131f3d;
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+  }
+}
+:root[data-theme="dark"]{
+    --bg:#04060f; --bg2:#070b1a; --panel:#0b1122; --panel2:#0e1730;
+    --ink:#e8ecfa; --ink2:#aeb8dc; --ink3:#7e89b5;
+    --line:#1e2a4a; --accent:#f0b13e; --accent-ink:#f5c86a;
+    --cyan:#5ec8e8; --cyan-soft:#0d2438;
+    --gold:#f0a824; --star:#f5c86a;
+    --good:#4cc983; --chip:#131f3d;
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+}
+:root[data-theme="light"]{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:"Padauk","Noto Sans Myanmar","Myanmar Text","Myanmar3",system-ui,sans-serif;
+  font-size:17px; line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:var(--cyan); text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1120px; margin:0 auto; padding:0 18px}
+h1,h2,h3{font-family:"Padauk","Noto Sans Myanmar","Myanmar Text","Myanmar3",sans-serif; line-height:1.45; margin:0}
+h2{font-size:clamp(24px,4.5vw,34px); font-weight:800}
+h3{font-size:19px; font-weight:700}
+p{margin:0 0 12px}
+.en{font-family:ui-sans-serif,system-ui,"Segoe UI",sans-serif; letter-spacing:.01em}
+.num{font-variant-numeric:tabular-nums; font-family:ui-monospace,"SF Mono",Menlo,monospace; font-size:.92em}
+
+/* ---------- hero ---------- */
+.hero{position:relative; color:var(--hero-ink); background:#04060f; overflow:hidden}
+.hero img.bg{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.82}
+.hero .shade{position:absolute; inset:0; background:linear-gradient(180deg, rgba(3,5,14,.42) 0%, rgba(3,5,14,.30) 45%, rgba(3,5,14,.88) 100%)}
+.hero .inner{position:relative; padding:64px 0 40px}
+.hero .kicker{display:inline-block; font-size:14px; letter-spacing:0; border:1px solid rgba(255,255,255,.4); padding:3px 12px; border-radius:999px; margin-bottom:16px; background:rgba(4,6,15,.35)}
+.hero h1{font-size:clamp(29px,6.8vw,54px); font-weight:800; line-height:1.65; margin-bottom:10px; overflow-wrap:break-word}
+.hero h1 .gold{color:var(--gold)}
+.hero .sub{font-size:clamp(16px,2.6vw,20px); max-width:720px; color:#dbe4ff; line-height:1.8}
+.hero .cta{display:flex; flex-wrap:wrap; gap:10px; margin-top:22px}
+.btn{display:inline-block; padding:10px 20px; border-radius:10px; font-weight:700; font-size:16px; line-height:1.5; border:1px solid transparent}
+.btn:hover{text-decoration:none}
+.btn-gold{background:var(--gold); color:#231a02}
+.btn-ghost{background:rgba(6,9,20,.45); color:#fff; border-color:rgba(255,255,255,.45)}
+.stat-strip{position:relative; border-top:1px solid rgba(255,255,255,.18); background:rgba(3,5,14,.55)}
+.stat-strip .wrap{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; padding-top:16px; padding-bottom:16px}
+.stat{text-align:left}
+.stat b{display:block; font-size:clamp(20px,4vw,30px); font-family:"Padauk","Noto Sans Myanmar","Myanmar Text","Myanmar3",sans-serif; color:#fff; line-height:1.3}
+.stat span{font-size:13.5px; color:#b9c6ee; line-height:1.5; display:block}
+@media (max-width:640px){ .stat-strip .wrap{grid-template-columns:1fr 1fr} }
+
+/* ---------- sections ---------- */
+section{padding:52px 0 8px}
+.sec-head{margin-bottom:8px}
+.sec-head .tag{display:inline-block; font-size:13.5px; font-weight:700; color:var(--accent-ink); background:color-mix(in srgb, var(--gold) 16%, transparent); border:1px solid color-mix(in srgb, var(--gold) 45%, transparent); padding:2px 11px; border-radius:999px; margin-bottom:10px; line-height:1.6}
+.sec-lead{color:var(--ink2); max-width:820px; font-size:17.5px}
+.rule{height:1px; background:var(--line); margin:34px 0 0}
+
+.grid{display:grid; gap:16px}
+.g2{grid-template-columns:1fr 1fr}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){ .g3,.g4{grid-template-columns:1fr 1fr} }
+@media (max-width:600px){ .g2,.g3,.g4{grid-template-columns:1fr} }
+
+.card{background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:20px; box-shadow:var(--shadow)}
+.card h3{margin-bottom:6px}
+.card p{color:var(--ink2); font-size:16px}
+.card p:last-child{margin-bottom:0}
+.card .meta{font-size:13.5px; color:var(--ink3); line-height:1.6}
+figure.card{padding:0; overflow:hidden}
+figure.card img{width:100%; height:230px; object-fit:cover}
+figure.card figcaption{padding:14px 18px 16px}
+figure.card figcaption h3{margin-bottom:4px}
+figure.card figcaption p{font-size:15.5px}
+.wide-fig{border-radius:14px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--shadow); background:var(--panel)}
+.wide-fig img{width:100%; height:min(52vw,440px); object-fit:cover}
+.wide-fig figcaption{padding:12px 18px; font-size:14.5px; color:var(--ink2)}
+.chip{display:inline-block; background:var(--chip); color:var(--ink2); border-radius:999px; padding:1px 10px; font-size:13.5px; margin:0 4px 6px 0; line-height:1.7}
+.fact{border-left:3px solid var(--gold); padding:2px 0 2px 14px; margin:0 0 14px}
+.fact b{color:var(--ink)}
+.small{font-size:14.5px; color:var(--ink3)}
+
+/* tables — stacked cards on phone */
+.tbl{width:100%; border-collapse:collapse; background:var(--panel); border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:var(--shadow)}
+.tbl th,.tbl td{padding:11px 14px; text-align:left; vertical-align:top; border-bottom:1px solid var(--line); font-size:15.5px; line-height:1.65}
+.tbl th{background:var(--panel2); font-family:"Padauk","Noto Sans Myanmar","Myanmar Text","Myanmar3",sans-serif; font-size:15px}
+.tbl tr:last-child td{border-bottom:none}
+.tbl td:first-child{font-weight:700; white-space:nowrap}
+.tblwrap{overflow-x:auto; border-radius:14px}
+.tbl-more,.tbl-rows-toggle{display:none}
+@media (max-width:640px){
+  /* each row becomes a compact card: first cell = title, the others = "label | value" lines */
+  .tblwrap{overflow:visible}
+  .tbl:not(.tbl-keep),.tbl:not(.tbl-keep) tbody,.tbl:not(.tbl-keep) tr,.tbl:not(.tbl-keep) td{display:block; width:100%}
+  .tbl:not(.tbl-keep){background:none; border:0; box-shadow:none; border-radius:0; overflow:visible}
+  .tbl:not(.tbl-keep) .thead-row{display:none}
+  .tbl:not(.tbl-keep) tr{background:var(--panel); border:1px solid var(--line); border-radius:14px; margin:0 0 10px; padding:10px 0 6px; box-shadow:var(--shadow)}
+  .tbl:not(.tbl-keep) td{display:flow-root; border:0; padding:4px 14px; font-size:14.5px; line-height:1.65; overflow-wrap:anywhere; word-break:break-word; white-space:normal}
+  .tbl:not(.tbl-keep) td:first-child{font-size:16.5px; padding:2px 14px 8px; margin-bottom:4px; border-bottom:1px solid var(--line)}
+  .tbl:not(.tbl-keep) td:not(:first-child)::before{content:attr(data-label); float:left; width:34%; margin-right:3%; font-size:12.5px; line-height:1.9; font-weight:600; color:var(--ink2)}
+  .tbl:not(.tbl-keep) td:not(:first-child) .v{display:block; overflow:hidden}
+  .js .tbl:not(.tbl-keep) tr.has-more:not(.open) td:nth-child(n+5):not(.tbl-more){display:none}
+  .js .tbl:not(.tbl-keep) .tbl-more{display:block; padding:6px 14px 2px}
+  .tbl:not(.tbl-keep) .tbl-more::before{display:none}
+  .tbl-toggle{width:100%; min-height:44px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); border-radius:10px; font:inherit; font-size:14.5px; font-weight:600; cursor:pointer}
+  .js .tbl:not(.tbl-keep):not(.all-rows) .row-extra{display:none}
+  .tbl-rows-toggle{display:block; width:100%; min-height:46px; margin:2px 0 14px; border:1px solid var(--line); background:var(--panel2); color:var(--ink); border-radius:12px; font:inherit; font-size:15px; font-weight:700; cursor:pointer}
+  .tbl-keep th,.tbl-keep td{padding:9px 10px; font-size:14.5px; overflow-wrap:anywhere; word-break:break-word; white-space:normal}
+}
+
+/* timeline */
+.tl{position:relative; margin-top:10px; padding-left:26px}
+.tl::before{content:""; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:var(--line)}
+.tl-item{position:relative; padding:0 0 20px}
+.tl-item::before{content:""; position:absolute; left:-24px; top:9px; width:12px; height:12px; border-radius:50%; background:var(--gold); border:3px solid var(--bg)}
+.tl-item .yr{font-family:"Padauk","Noto Sans Myanmar","Myanmar Text","Myanmar3",sans-serif; font-weight:800; color:var(--accent-ink); font-size:17px}
+.tl-item p{color:var(--ink2); font-size:16px; margin:0; max-width:760px}
+
+/* interactive panels */
+.panel{background:var(--panel); border:1px solid var(--line); border-radius:16px; box-shadow:var(--shadow); padding:22px}
+.pickrow{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px}
+.pick{
+  font-family:inherit; font-size:15.5px; font-weight:700; cursor:pointer;
+  padding:8px 15px; border-radius:999px; border:1px solid var(--line);
+  background:var(--panel2); color:var(--ink2); line-height:1.5;
+}
+.pick:hover{border-color:var(--accent)}
+.pick.on{background:var(--gold); border-color:var(--gold); color:#231a02}
+.planet-head{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+.planet-orb{width:92px; height:92px; border-radius:50%; flex:none; box-shadow:inset -14px -10px 24px rgba(0,0,0,.35), var(--shadow)}
+.planet-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-top:16px}
+@media (max-width:700px){ .planet-stats{grid-template-columns:1fr 1fr} }
+.pstat{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:10px 12px}
+.pstat span{display:block; font-size:13px; color:var(--ink3); line-height:1.5}
+.pstat b{font-size:16.5px; line-height:1.5}
+
+/* lifecycle stepper */
+.steps{display:flex; flex-wrap:wrap; gap:6px; align-items:center; margin:6px 0 16px}
+.stepdot{
+  font-family:inherit; cursor:pointer; font-size:14.5px; font-weight:700; line-height:1.5;
+  border:1px solid var(--line); background:var(--panel2); color:var(--ink2);
+  border-radius:999px; padding:6px 13px;
+}
+.stepdot.on{background:var(--cyan); border-color:var(--cyan); color:#fff}
+.steparrow{color:var(--ink3)}
+
+/* papers & datasets */
+.paper{border-left:3px solid var(--cyan); padding:4px 0 4px 16px; margin-bottom:22px}
+.paper h3{font-size:18px}
+.paper .auth{color:var(--ink3); font-size:14.5px; margin-bottom:4px}
+.paper p{color:var(--ink2); font-size:16px}
+.badge{display:inline-block; font-size:12.5px; font-weight:700; padding:0 9px; border-radius:5px; line-height:1.9; margin-right:6px; vertical-align:2px}
+.b-arxiv{background:#7a1f1f; color:#ffd9d9}
+.b-journal{background:#14532d; color:#d3f4de}
+.b-ds{background:var(--cyan-soft); color:var(--cyan)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .b-arxiv{background:#4a1414} :root:not([data-theme="light"]) .b-journal{background:#12351f} }
+:root[data-theme="dark"] .b-arxiv{background:#4a1414} :root[data-theme="dark"] .b-journal{background:#12351f}
+
+details{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 18px; margin-bottom:10px}
+details summary{cursor:pointer; font-weight:700; font-family:"Padauk","Noto Sans Myanmar","Myanmar Text","Myanmar3",sans-serif; font-size:16.5px}
+details p{color:var(--ink2); font-size:16px; margin-top:8px}
+
+footer{margin-top:60px; border-top:1px solid var(--line); background:var(--bg2); padding:34px 0 46px}
+footer p, footer li{color:var(--ink2); font-size:15px}
+footer ul{margin:6px 0 0; padding-left:20px}
+.srclinks{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
+.srclinks a{border:1px solid var(--line); background:var(--panel); padding:5px 13px; border-radius:999px; font-size:14.5px; color:var(--ink2)}
+.srclinks a:hover{color:var(--ink); text-decoration:none}
+
+/* ---------- live widgets ---------- */
+.livedot{display:inline-block; width:9px; height:9px; border-radius:50%; background:#e0322a; margin-right:7px; animation:pulse 1.6s ease-in-out infinite; vertical-align:1px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+.src{display:inline-block; font-size:12.5px; font-weight:700; color:var(--cyan); background:var(--cyan-soft); border-radius:5px; padding:0 8px; line-height:1.9; margin-left:8px; vertical-align:2px}
+.wstats{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px}
+.wstat{background:var(--panel2); border:1px solid var(--line); border-radius:10px; padding:10px 12px}
+.wstat span{display:block; font-size:13px; color:var(--ink3); line-height:1.5}
+.wstat b{font-size:17px; line-height:1.5}
+.livefail{color:var(--ink2); font-size:15.5px; background:color-mix(in srgb, #c0392b 8%, var(--panel2)); border:1px solid color-mix(in srgb, #c0392b 35%, var(--line)); border-radius:10px; padding:12px 14px; margin-top:10px}
+.livenote{font-size:14px; color:var(--ink3); margin-top:10px}
+.thumbgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-top:12px}
+@media (max-width:700px){ .thumbgrid{grid-template-columns:1fr 1fr} }
+.thumbgrid a{display:block; border-radius:10px; overflow:hidden; border:1px solid var(--line)}
+.thumbgrid img{width:100%; height:110px; object-fit:cover}
+.searchrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:6px}
+.searchrow input{
+  flex:1 1 200px; font-family:inherit; font-size:16px; padding:10px 14px; min-height:48px;
+  border:1px solid var(--line); border-radius:10px; background:var(--panel2); color:var(--ink);
+}
+.searchrow button{
+  font-family:inherit; font-size:16px; font-weight:700; cursor:pointer; min-height:48px;
+  padding:10px 20px; border-radius:10px; border:1px solid var(--gold); background:var(--gold); color:#231a02;
+}
+.apodimg{width:100%; border-radius:10px; border:1px solid var(--line); margin-top:10px}
+.newsitem{border-top:1px solid var(--line); padding:10px 0 2px}
+.newsitem:first-of-type{border-top:none}
+.newsitem a{font-weight:700; color:var(--ink)}
+.newsitem a:hover{color:var(--cyan)}
+.newsitem .meta{font-size:13px; color:var(--ink3)}
+.ppl{margin:8px 0 0; padding-left:20px}
+.ppl li{color:var(--ink2); font-size:15.5px}
+
+/* ---------- responsive polish ---------- */
+.paper a, .card a, .newsitem a{overflow-wrap:anywhere}
+.pick{min-height:44px; display:inline-flex; align-items:center}
+.stepdot{min-height:44px}
+details summary{padding:6px 0}
+.srclinks a{min-height:40px; display:inline-flex; align-items:center}
+@media (max-width:820px){
+  section{padding:40px 0 4px}
+  .panel{padding:16px}
+  .card{padding:16px}
+  figure.card figcaption{padding:12px 14px 14px}
+  figure.card img{height:200px}
+  .hero .inner{padding:44px 0 30px}
+  body{font-size:16.5px}
+}
+
+/* ---------- calculator / calendar / tonight / gallery ---------- */
+.calcrow{display:flex; gap:8px; flex-wrap:wrap; margin-top:6px}
+.calcrow label{flex:1 1 200px; font-size:14.5px; color:var(--ink3); line-height:1.5}
+.calcrow input{
+  display:block; width:100%; font-family:inherit; font-size:16px; padding:10px 14px; min-height:48px; margin-top:4px;
+  border:1px solid var(--line); border-radius:10px; background:var(--panel2); color:var(--ink);
+}
+.calcrow button{
+  font-family:inherit; font-size:16px; font-weight:700; cursor:pointer; min-height:48px; align-self:flex-end;
+  padding:10px 22px; border-radius:10px; border:1px solid var(--gold); background:var(--gold); color:#231a02;
+}
+.vis-y{color:var(--good); font-weight:700}
+.vis-n{color:#c0392b; font-weight:700}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .vis-n{color:#e88a7d} }
+:root[data-theme="dark"] .vis-n{color:#e88a7d}
+.moonwrap{display:flex; gap:20px; align-items:center; flex-wrap:wrap}
+.moonball{position:relative; width:124px; height:124px; border-radius:50%; background:#232c49; border:1px solid var(--line); overflow:hidden; flex:none}
+.moonlit{position:absolute; inset:0; border-radius:50%; background:radial-gradient(circle at 38% 34%, #fdf3c4, #eec95e 78%)}
+.vidframe{position:relative; padding-top:56.25%; border-radius:10px; overflow:hidden; border:1px solid var(--line); background:#000}
+.vidframe iframe{position:absolute; inset:0; width:100%; height:100%; border:0}
+.gcard{display:flex; flex-direction:column}
+.gcard .gimg{width:100%; height:170px; object-fit:cover}
+.gcard .gbody{padding:16px 18px 18px}
+.gcard .gbody p{font-size:15.5px}
+@media (prefers-reduced-motion: reduce){
+  .livedot{animation:none}
+}
+
+/* ---------- resilient live-data widgets ---------- */
+.wstats{grid-template-columns:repeat(2,minmax(0,1fr));}
+.wstat{min-width:0; overflow-wrap:anywhere; word-break:normal;}
+.wstat span{display:block; line-height:1.5;}
+.wstat b{display:block; overflow-wrap:anywhere; font-variant-numeric:tabular-nums;}
+.apodimg{width:100%; max-height:560px; object-fit:contain; background:var(--panel2); border-radius:12px;}
+.apod-explanation{color:var(--ink2); font-size:15.5px; margin-top:10px; overflow-wrap:anywhere;}
+.stale{color:var(--accent-ink);}
+.newsitem{min-width:0; overflow-wrap:anywhere;}
+.newsitem a{overflow-wrap:anywhere;}
+.thumbgrid img{height:clamp(90px,15vw,160px); object-fit:cover;}
+@media(max-width:420px){
+  .wstats{grid-template-columns:minmax(0,1fr); gap:8px;}
+  .wstat{padding:10px 12px;}
+  .apod-explanation{font-size:15px; line-height:1.7;}
+}
+@media(prefers-reduced-motion:reduce){.skel{animation:none;}}
