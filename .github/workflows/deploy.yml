@@ -63,7 +63,7 @@ jobs:
           VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
         run: |
           if [ -n "$VERCEL_DEPLOY_HOOK" ]; then curl -fsS -X POST "$VERCEL_DEPLOY_HOOK" >/dev/null && echo "Vercel rebuild triggered"; else echo "No VERCEL_DEPLOY_HOOK secret; skipped"; fi
-      - uses: actions/configure-pages@v5
+      - uses: actions/configure-pages@v6
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
