@@ -1,102 +1,108 @@
 # Kyallan · ကြယ်လမ်း
 
-**A website for learning astronomy in Burmese** — explore the Solar System, NASA missions, astronomy events, and more.
+A website to learn about space in Burmese.
 
-This project is built without external dependencies and can be built and served with Node.js 18+. The public website can be deployed to GitHub Pages or Vercel.
+This project uses no extra packages. You need Node.js 18 or newer to build and run it.
 
-## Project structure
+## Project files
 
 ```text
 kyallan/
 ├── src/
 │   ├── index.template.html, hero.html, footer.html
-│   ├── sections/*.html          # One file per section
+│   ├── sections/*.html          # One file for each section
 │   ├── data/site.json           # Site name, menu, and section order
 │   ├── css/*.css
-│   ├── js/*.js                  # UI, router, tools, and live data
+│   ├── js/*.js                  # Page tools and live data
 │   └── assets/                  # Fonts and photos
-├── public/                      # Favicon, PWA manifest/icons, service worker
+├── public/                      # Site icons and service worker
 ├── scripts/
-│   ├── fetch-data.mjs           # Fetch API snapshots and check schemas
-│   ├── build.mjs                # Build source files into dist/
-│   ├── validate-site.mjs        # Check the generated site
-│   └── serve.mjs                # Local preview server
-└── .github/workflows/deploy.yml # Refresh, build, validate, and deploy
+│   ├── fetch-data.mjs           # Get API data and check it
+│   ├── build.mjs                # Build the site in dist/
+│   ├── validate-site.mjs        # Check the built site
+│   └── serve.mjs                # Run a local preview
+└── .github/workflows/deploy.yml # Build and deploy the site
 ```
 
-## Run locally
+## Run the site on your computer
 
-Use Node.js 18 or later. Open a terminal in the project directory and run:
+Install Node.js 18 or newer. Open a terminal in the project folder and run:
 
 ```bash
-npm start              # Build and serve at localhost:8080
-PORT=3000 npm start     # Use a different port if 8080 is already in use
-npm run fetch           # Fetch public API data into data-cache/
-npm run build           # Generate dist/
-npm run validate        # Check HTML, links, assets, sections, manifest, and data files
-npm run start:live       # Fetch API data, then build and preview
+npm start              # Build and run at localhost:8080
+PORT=3000 npm start    # Use port 3000 instead
+npm run fetch          # Get public API data
+npm run build          # Build the site in dist/
+npm run validate       # Check the site files
+npm run start:live     # Get API data, build, and run the site
 ```
 
-`npm run start:live` requires an internet connection. Some APIs may be unavailable because of regional restrictions, rate limits, or upstream service issues. In that case, the site can use its existing cached data where available.
+`npm run start:live` needs an internet connection. Some APIs may be slow or may not work. They may also limit the number of requests.
 
-## Deploy to GitHub Pages
+## Publish with GitHub Pages
 
-1. Extract the ZIP and upload all project files (especially the `.github` folder) to the `main` branch of your GitHub repository.
-2. Go to **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**.
-3. In the repository's **Actions** tab, check whether the **Build, validate & deploy to GitHub Pages** workflow succeeds.
-4. Under **Settings → Secrets and variables → Actions → Variables**, add `SITE_URL`. For example: `https://USERNAME.github.io/REPOSITORY/`. If you use a custom domain, use its URL instead.
-5. After deployment succeeds, open the website and test it. A successful build and validation do not guarantee that every live API is available.
+1. Upload all project files to your GitHub repository. Include the `.github` folder.
+2. Open **Settings → Pages**. Under **Build and deployment**, choose **GitHub Actions**.
+3. Open the **Actions** tab and check the **Build, validate & deploy to GitHub Pages** workflow.
+4. Add a `SITE_URL` variable under **Settings → Secrets and variables → Actions → Variables**. For example: `https://USERNAME.github.io/REPOSITORY/`.
+5. When deployment is done, open your website and test it.
 
 ### NASA API key (optional)
 
-The shared `DEMO_KEY` may reach its rate limit when used for NASA APOD and the Near-Earth Object API. Get a free key at <https://api.nasa.gov/> and add it as the `NASA_API_KEY` environment variable in your deployment settings.
+NASA's shared `DEMO_KEY` may reach its request limit. You can get a free API key at <https://api.nasa.gov/>. Add it as `NASA_API_KEY` in your website settings.
 
-## Live APIs and stale-data protection
+## Live data
 
-Before building the website, GitHub Actions fetches snapshots of the following data:
+Before building the site, GitHub Actions saves data from these sources:
 
-| Data | Source | Use |
+| Data | Source | What it shows |
 |---|---|---|
-| Astronomy Picture of the Day | NASA APOD WordPress API | Daily image, title, and explanation |
-| Near-Earth Objects | NASA NeoWs | Asteroid close approaches for the current date |
-| People in Space | Corquaid ISS APIs | List of people currently in space |
-| Spaceflight News | The Space Devs / Spaceflight News API | Space news — requested directly from the API when a visitor opens it |
-| Upcoming launches | Launch Library 2 | Upcoming launches, UTC times, and status |
-| arXiv | arXiv Atom API | Latest astro-ph papers |
-| ISS position / Earth EPIC / NASA image search | Where the ISS At? / NASA EPIC / NASA Images API | Fetched in the browser when the relevant widget is opened |
+| Astronomy Picture of the Day | NASA APOD WordPress API | A daily space picture and its details |
+| Near-Earth Objects | NASA NeoWs | Asteroids that pass near Earth |
+| People in Space | Corquaid ISS APIs | People who are in space now |
+| Spaceflight News | The Space Devs / Spaceflight News API | Space news |
+| Upcoming launches | Launch Library 2 | Future launches and times |
+| arXiv | arXiv Atom API | New space science papers |
+| ISS position / Earth EPIC / NASA image search | Where the ISS At? / NASA EPIC / NASA Images API | Data shown in the related tools |
 
-The `data-cache/` directory is retained between GitHub Actions runs using the Actions cache, so previously fetched snapshots can be used as a fallback if an API request fails.
+The `data-cache/` folder keeps saved data between GitHub Actions runs. The site can use this data if an API is not working.
 
-Launch Library 2's unauthenticated quota is 15 requests per hour, so the site does not make a launch-data request for every individual visitor. The build workflow refreshes and caches this data instead.
+Launch Library 2 allows 15 requests per hour without a login. The site saves launch data when it builds instead of asking the API each time a visitor opens the site.
 
-## Offline / PWA
+## Use the site offline
 
-The service worker caches the site shell, fonts, previously loaded same-origin assets, and API snapshots. Some live features still require an internet connection, and cached data may not be current.
+The service worker saves some site files and data. Some features still need an internet connection. Saved data may be old.
 
-## Files to edit
+## Change the site
 
-| To change | Edit |
+| What to change | File |
 |---|---|
-| Image gallery (NASA images) | `<div class="nasa-gallery" data-q="...">` in a section file |
-| Footer contact email | `src/footer.html` |
-| Space Calendar dates (meteor showers, eclipses, missions) | `src/data/calendar.json` (you only need to edit this file) |
+| NASA image gallery | A section file with `<div class="nasa-gallery" data-q="...">` |
+| Footer email | `src/footer.html` |
+| Space Calendar dates | `src/data/calendar.json` |
 | Section text or images | `src/sections/<id>.html` |
-| Menu, section order, and metadata | `src/data/site.json` |
-| Responsive appearance | `src/css/base.css`, `src/css/ui.css` |
-| Live APIs and API fallbacks | `src/js/live.js` |
-| API snapshot fetching and validation | `scripts/fetch-data.mjs` |
-| Build, SEO, and generated output | `scripts/build.mjs`, `src/index.template.html` |
-| Offline caching | `public/sw.js` |
+| Menu, section order, and site details | `src/data/site.json` |
+| Site design | `src/css/base.css`, `src/css/ui.css` |
+| Live API data | `src/js/live.js` |
+| How API data is downloaded | `scripts/fetch-data.mjs` |
+| How the site is built | `scripts/build.mjs`, `src/index.template.html` |
+| Offline files | `public/sw.js` |
 
-After making changes, run `npm run build && npm run validate` first. Then push your changes to GitHub and check the Actions workflow.
+After making changes, run:
 
-## Accuracy and sources
+```bash
+npm run build && npm run validate
+```
 
-Mission schedules and astronomy event dates can change. For Artemis III/IV, check the latest information at <https://www.nasa.gov/missions/artemis/>. Verify dates and mission details with the relevant official source before publishing updates.
+Then upload your changes to GitHub and check the **Actions** tab.
 
-## Deploy to Vercel
+## Check information
 
-1. In Vercel, choose **Add New → Project** and select the GitHub repository. The `vercel.json` file already specifies the build command and output directory (`dist`), so the default settings should work.
-2. In **Project Settings → Environment Variables**, add `NASA_API_KEY` if you have one. If you use a custom domain, also set `SITE_URL` to its URL (`https://...`).
-3. To refresh data every three hours on Vercel as well, create a deploy hook under **Settings → Git → Deploy Hooks** and schedule it with an external cron service.
-4. If you deploy to both platforms, set `SITE_URL` to only the primary URL (used as the canonical URL for search engines).
+Mission and space event dates can change. Check the latest Artemis III/IV information at <https://www.nasa.gov/missions/artemis/>.
+
+## Publish with Vercel
+
+1. In Vercel, choose **Add New → Project** and select your GitHub repository. The `vercel.json` file already sets the build command and output folder (`dist`).
+2. Add `NASA_API_KEY` under **Project Settings → Environment Variables** if you have a key. If you use your own domain, also add `SITE_URL`.
+3. To update data every three hours, create a deploy hook in **Settings → Git → Deploy Hooks** and use a timer service to run it.
+4. If you use both Vercel and GitHub Pages, set `SITE_URL` to your main website address.
